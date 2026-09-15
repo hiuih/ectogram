@@ -43,10 +43,17 @@ function isAllowedHost(hostname) {
   return ALLOWED_HOSTS.some((h) => hostname === h || hostname.endsWith('.' + h));
 }
 
+// Instagram's own site is responsive — under ~600px it switches to its real
+// mobile layout (top search header, single-column feed, bottom tab bar)
+// with zero CSS hacking needed on our end. Verified live against the real
+// site. Sizing the window into that range by default is what actually makes
+// this "look like the mobile app," and is far more robust than hardcoding
+// Meta's auto-generated atomic CSS class names (they're regenerated on every
+// deploy and aren't stable selectors).
 function buildWindowBounds() {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-  const w = Math.min(1200, width - 100);
-  const h = Math.min(800, height - 100);
+  const w = 460;
+  const h = Math.min(900, height - 100);
   return {
     width: w,
     height: h,
@@ -127,7 +134,8 @@ function createApp() {
   const main = new BrowserWindow({
     ...bounds,
     show: false,
-    minWidth: 480,
+    minWidth: 380,
+    maxWidth: 620,
     minHeight: 480,
     title: APP_NAME,
     icon: ICON_PNG,
