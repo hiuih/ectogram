@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Ectogram</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
@@ -16,6 +17,7 @@
     --accent:#c13584;
     --accent-ink:#8a1f5e;
     --accent-wash: rgba(193,53,132,0.12);
+    --accent-text:#ffffff;
     --radius-lg:28px;
     --radius-md:16px;
     --font-display:'Bricolage Grotesque', system-ui, sans-serif;
@@ -62,7 +64,7 @@
   }
   .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-wash);}
   .hero h1{font-size:clamp(38px,5vw,60px); line-height:1.04; font-weight:700; letter-spacing:-0.02em;}
-  .hero h1 em{font-style:normal; color:var(--accent-ink); background:linear-gradient(to bottom, transparent 62%, var(--accent) 62%); padding-inline:1px;}
+  .hero h1 em{font-style:normal; color:var(--accent-text); background:var(--accent); border-radius:10px; padding-inline:10px;}
   .hero-sub{margin-top:20px; font-size:18px; line-height:1.55; color:var(--text-muted); max-width:46ch;}
   .hero-ctas{display:flex; gap:12px; margin-top:32px; flex-wrap:wrap;}
   .btn-primary{
